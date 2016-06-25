@@ -1,4 +1,4 @@
-package service;
+package com.enghack.aRIve.service;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ResponseHandler;
@@ -26,7 +26,7 @@ public class TtcService {
 
     public String executeGet(String url) throws Exception {
 
-        CloseableHttpClient httpClient = HttpClientBuilder.create().build();;
+        CloseableHttpClient httpClient = HttpClientBuilder.create().build();
 
         try {
             URIBuilder builder = new URIBuilder(url);
