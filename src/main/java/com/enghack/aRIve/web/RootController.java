@@ -1,5 +1,6 @@
 package com.enghack.aRIve.web;
 
+import com.enghack.aRIve.service.GeocodeService;
 import com.enghack.aRIve.service.TtcService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,10 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class RootController {
+
+    @Autowired
+    private GeocodeService geocodeService;
+
 
     @Autowired
     private TtcService ttcService;
@@ -34,7 +39,10 @@ public class RootController {
 
         String busRouteNumber;
         String busID;
+        String address = ""; //TODO: replace space with + sign
+
         //logger.debug( "Called" );
+        String geo = geocodeService.executeGet("https://maps.googleapis.com/maps/api/geocode/xml?" + address);
 
         String x = ttcService.executeGet("http://webservices.nextbus.com/service/publicXMLFeed?command=vehicleLocations&a=ttc&r=53&t=0");
 
