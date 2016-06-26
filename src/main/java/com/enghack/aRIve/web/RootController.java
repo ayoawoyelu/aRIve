@@ -31,6 +31,9 @@ public class RootController {
 
     @RequestMapping(value = "/getit", method = RequestMethod.GET)
     public String handleHomeGetRequest() throws Exception {
+
+        String busRouteNumber;
+        String busID;
         //logger.debug( "Called" );
 
         String x = ttcService.executeGet("http://webservices.nextbus.com/service/publicXMLFeed?command=vehicleLocations&a=ttc&r=53&t=0");

@@ -22,37 +22,37 @@ import java.net.URI;
  * Created by 37264 on 6/25/16.
  */
 @Service
-public class TtcService {
+public class TtcService extends AbstractService{
 
-    public String executeGet(String url) throws Exception {
-
-        CloseableHttpClient httpClient = HttpClientBuilder.create().build();
-
-        try {
-            URIBuilder builder = new URIBuilder(url);
-            URI uri = builder.build();
-            HttpGet method = new HttpGet(uri);
-            HttpPost postMethod = new HttpPost(uri);
-            HttpDelete deleteMethod = new HttpDelete(uri);
-
-
-            // Parse and check response
-            HttpResponse response = httpClient.execute(method);
-            ResponseHandler<String> handler = new BasicResponseHandler();
-            String body = handler.handleResponse(response);
-
-
-
-            return body;
-        } catch (Exception ex) {
-            throw new Exception(ex.getMessage());
-        } finally {
-            // Close the connection
-            try {
-                httpClient.close();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        }
-    }
+//    public String executeGet(String url) throws Exception {
+//
+//        CloseableHttpClient httpClient = HttpClientBuilder.create().build();
+//
+//        try {
+//            URIBuilder builder = new URIBuilder(url);
+//            URI uri = builder.build();
+//            HttpGet method = new HttpGet(uri);
+//            HttpPost postMethod = new HttpPost(uri);
+//            HttpDelete deleteMethod = new HttpDelete(uri);
+//
+//
+//            // Parse and check response
+//            HttpResponse response = httpClient.execute(method);
+//            ResponseHandler<String> handler = new BasicResponseHandler();
+//            String body = handler.handleResponse(response);
+//
+//
+//
+//            return body;
+//        } catch (Exception ex) {
+//            throw new Exception(ex.getMessage());
+//        } finally {
+//            // Close the connection
+//            try {
+//                httpClient.close();
+//            } catch (IOException ex) {
+//                ex.printStackTrace();
+//            }
+//        }
+//    }
 }
